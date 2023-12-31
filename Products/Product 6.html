@@ -44,15 +44,21 @@
   </nav> <br> <br>  
   <div class="container">
     <div class="row">
-      <div class="col-5 ">
-        <div class="card" style="border: 1px solid black;"><img src="../Products images/Product 6/Product 6_1.jpg"
+      <div class="col-lg-5 col-12 ">
+        <div class="card" style="border: 1px solid black;"><img id="Big" height="440px" src="../Products images/Product 6/Product 6_1.jpg"
             width="100%"></div><br><br>
-        <img src="../Products images/Product 6/Product 6_1.jpg" width="15%" border="1">&nbsp;&nbsp;
-        <img src="../Products images/Product 6/Product 6_2.jpg" width="15%" border="1">&nbsp;&nbsp;
-        <img src="../Products images/Product 6/Product 6_3.jpg" width="15%" border="1">&nbsp;&nbsp;
-        <img src="../Products images/Product 6/Product 6_4.jpg" width="15%" border="1">&nbsp;&nbsp;
-        <img src="../Products images/Product 6/Product 6_5.jpg" width="15%" border="1">&nbsp;&nbsp;
+        <img src="../Products images/Product 6/Product 6_1.jpg" onclick="change('../Products images/Product 6/Product 6_1.jpg')" width="15%" border="1">&nbsp;&nbsp;
+        <img src="../Products images/Product 6/Product 6_2.jpg" onclick="change('../Products images/Product 6/Product 6_2.jpg')" width="15%" border="1">&nbsp;&nbsp;
+        <img src="../Products images/Product 6/Product 6_3.jpg" onclick="change('../Products images/Product 6/Product 6_3.jpg')" width="15%" border="1">&nbsp;&nbsp;
+        <img src="../Products images/Product 6/Product 6_4.jpg" onclick="change('../Products images/Product 6/Product 6_4.jpg')" width="15%" border="1">&nbsp;&nbsp;
+        <img src="../Products images/Product 6/Product 6_5.jpg" onclick="change('../Products images/Product 6/Product 6_5.jpg')" width="15%" border="1">&nbsp;&nbsp;
         <br><br><br>
+        <script>
+          function change(src){
+            document.getElementById("Big").src=src;
+
+          }
+        </script>
         <!--Contact company about this product (Not done)-->
         <h3>Product information</h3><br>
         <table class="table table-bordered" width="100%">
@@ -82,7 +88,7 @@
           </tr>
         </table>
       </div>
-      <div class="col-4">
+      <div class="col-lg-4 col-7">
         <h1>Snail Soap Dispenser</h1>
         <br>
         <hr><br>
@@ -111,7 +117,7 @@
 
         </ul>
       </div>
-      <div class="col-3"><br><br>
+      <div class="col-lg-3 col-5"><br><br>
         <div class="card" style="border:1px solid black; padding:15px;">
           <h4>&nbsp;$7.99&nbsp;&nbsp;&nbsp;<img src="../Products images/General images/5 stars rate.png" height="40">
           </h4>
