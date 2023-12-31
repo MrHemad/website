@@ -43,14 +43,19 @@
   </nav> <br> <br>  
   <div class="container">
     <div class="row">
-      <div class="col-5 ">
-        <div class="card" style="border: 1px solid black;"><img src="../Products images/Product 4/Product 4_1.jpg"
+      <div class="col-lg-5 col-12">
+        <div class="card" style="border: 1px solid black;"><img id="Big" height="440px" src="../Products images/Product 4/Product 4_1.jpg"
             width="100%" style="padding-top: 50px; padding-bottom: 50px;"></div><br><br>
-        <img src="../Products images/Product 4/Product 4_1.jpg" width="15%" border="1">&nbsp;&nbsp;
-        <img src="../Products images/Product 4/Product 4_2.jpg" width="15%" border="1">&nbsp;&nbsp;
-        <img src="../Products images/Product 4/Product 4_3.jpg" width="15%" border="1">&nbsp;&nbsp;
-        <img src="../Products images/Product 4/Product 4_4.jpg" width="15%" border="1">&nbsp;&nbsp;
+        <img src="../Products images/Product 4/Product 4_1.jpg" onclick="change('../Products images/Product 4/Product 4_1.jpg')" width="15%" border="1">&nbsp;&nbsp;
+        <img src="../Products images/Product 4/Product 4_2.jpg" onclick="change('../Products images/Product 4/Product 4_2.jpg')" width="15%" border="1">&nbsp;&nbsp;
+        <img src="../Products images/Product 4/Product 4_3.jpg" onclick="change('../Products images/Product 4/Product 4_3.jpg')" width="15%" border="1">&nbsp;&nbsp;
+        <img src="../Products images/Product 4/Product 4_4.jpg" onclick="change('../Products images/Product 4/Product 4_4.jpg')" width="15%" border="1">&nbsp;&nbsp;
+        <script>
+          function change(src){
+            document.getElementById("Big").src=src;
 
+          }
+        </script>
         <br><br><br>
         <!--Contact company about this product (Not done)-->
         <h3>Product information</h3><br>
@@ -82,7 +87,7 @@
           </tr>
         </table>
       </div>
-      <div class="col-4">
+      <div class="col-lg-4 col-7">
         <h1>Lobster Slippers</h1>
         <br>
         <hr><br>
@@ -109,7 +114,7 @@
           </li>
         </ul>
       </div>
-      <div class="col-3"><br><br>
+      <div class="col-lg-3 col-5"><br><br>
         <div class="card" style="border:1px solid black; padding:15px;">
           <h4>&nbsp;$15.49&nbsp;&nbsp;&nbsp;<img src="../Products images/General images/5 stars rate.png" height="40">
           </h4>
