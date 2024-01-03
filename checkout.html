@@ -30,7 +30,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link" aria-current="page" href="index.html">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="products.html">Products</a>
@@ -43,6 +43,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="reviews.html">Reviews</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="checkout.html">Check Out</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="SiteMap.html">Sitemap</a>
@@ -68,7 +71,7 @@
     <br>
   <form class="formStyling" id="myForm">
     <!--First form -->
-    <!-- <label>Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" id="name"> <span id="nameMsg" class="redText"></span>
+    <label>Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" id="name"> <span id="nameMsg" class="redText"></span>
     <br> <br>
     <label>E-mail: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" id="email"> <span id="emailMsg" class="redText"></span>
     <br> <br>
@@ -81,9 +84,9 @@
     <br> <br>
     <input type="button" class="btn btn-primary" value="Create Account" onclick="validateAccount()"> <span id="validationMsg"></span>
     <br> <br>
-    <p id="self">By clicking on "Create Account", you agree to the <a href="#self">terms and conditions</a> of this website.</p> -->
+    <p id="self">By clicking on "Create Account", you agree to the <a href="#self">terms and conditions</a> of this website.</p> 
     <!--Second form-->
-    <h5>Login details: </h5> <br>
+    <!-- <h5>Login details: </h5> <br>
     <label>E-mail: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" id="email"> <span id="emailMsg" class="redText"></span>
     <br> <br>
     <label>Password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="password" id="pas1"> <span id="pas1Msg" class="redText"></span>
@@ -91,7 +94,7 @@
     <label>Show Password: &nbsp;<input type="checkbox" onclick="togglePassword2()"> </label> <span id="pas1Msg" class="redText"></span>
     <br> <br>
     <h5>Select items: <span class="redText" style="font-weight: 100;"> Purchase $20.00 worth of items for a %5 discount!</span> </h5><br>
-    <label><input type="checkbox" name="items" value="Squirrel Finger Puppet Set" onclick="toggleQuantity(1)"> Squirrel Finger Puppet Set ~ Price: $4.99 </label> <span id="s1"></span> 
+    <label><input type="checkbox" name="items" value="Squirrel Finger Puppet Set" onclick="toggleQuantity(1)"> Squirrel Finger Puppet Set ~ Price: $4.99 </label> <span id="s1" class="redText"></span> 
     <div id="d1">
 
     </div>
@@ -116,10 +119,10 @@
 
     </div>
     <br>
-    <h5>Select Shipping Country & Mode: </h5><br>
+    <h5>Select Shipping Country & Shipping Option: </h5><br>
     <div class="container">
       <div class="row">
-        <div class="col-12 col-md-3">
+        <div class="col-12 col-md-2">
           <p>Country: &nbsp;</p>
           <select id="selectBox">
             <option value="Jordan">Jordan</option>
@@ -131,18 +134,19 @@
             <option value="Kingdom of Saudi Arabia">KSA</option>
           </select> 
         </div>
-        <div class="col-12 col-md-9">
-          <p>Mode: </p>
-          <label><input type="radio" name="shipping"> Normal Shipping ~ $10.00 &nbsp;</label>
-          <label><input type="radio" name="shipping"> Fast Shipping ~ $15.99 &nbsp;</label> 
-          <span id="shipMsg"></span>       
+        <div class="col-12 col-md-10">
+          <p>Option: </p>
+          <label><input type="radio" name="shipping" value="Normal Shipping"> Normal Shipping ~ $10.00 &nbsp;</label>
+          <label><input type="radio" name="shipping" value="Fast Shipping"> Fast Shipping ~ $15.99 &nbsp;</label> 
+          <span id="shipMsg" class="redText"></span>       
         </div>
       </div>
     </div>
     <br><br><input type="button" class="btn btn-primary" value="Create Account" onclick="validatePurchase()"> <span id="validationMsg"></span>
     <br> <br>
-    
-  </form>
+    <h4 id="discount"></h4>
+    <textarea rows="10" style="resize: none; width: 100%;" readonly id="output"></textarea> -->
+  </form> 
   <br>
   <footer>
     <hr>

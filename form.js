@@ -8,7 +8,9 @@ function switch1() {
 }
 
 function switch2() {
-    let content = ''
+    let content = '<h5>Login details: </h5> <br> <label>E-mail: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="text" id="email"> <span id="emailMsg" class="redText"></span> <br> <br> <label>Password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><input type="password" id="pas1"> <span id="pas1Msg" class="redText"></span> <br> <br>'
+    content += '<label>Show Password: &nbsp;<input type="checkbox" onclick="togglePassword2()"> </label> <span id="pas1Msg" class="redText"></span> <br> <br> <h5>Select items: <span class="redText" style="font-weight: 100;"> Purchase $20.00 worth of items for a %5 discount!</span>'
+    content += '</h5><br> <label><input type="checkbox" name="items" value="Squirrel Finger Puppet Set" onclick="toggleQuantity(1)"> Squirrel Finger Puppet Set ~ Price: $4.99 </label> <span id="s1" class="redText"></span> <div id="d1"> </div> <label><input type="checkbox" name="items" value="SquidWard Window Poster" onclick="toggleQuantity(2)"> SquidWard Window Poster ~ Price: $12.00 </label> <span id="s2"></span> <div id="d2"> </div> <label><input type="checkbox" name="items" value="Lobster Slippers" onclick="toggleQuantity(3)"> Lobster Slippers ~ Price: $15.49</label> <span id="s3"></span> <div id="d3"> </div> <label><input type="checkbox" name="items" value="Squirrel Finger Puppet Set" onclick="toggleQuantity(4)"> Rockman Fidget Toy Price ~ Price: $5.50 </label> <span id="s4"></span> <div id="d4"> </div> <label><input type="checkbox" name="items" value="Squirrel Finger Puppet Set" onclick="toggleQuantity(5)"> Snail Soap Dispenser ~ Price: $7.99 </label> <span id="s5"></span> <div id="d5"> </div> <label><input type="checkbox" name="items" value="Squirrel Finger Puppet Set" onclick="toggleQuantity(6)"> Brave Cat Curtain ~ Price: $30.00</label> <span id="s6"></span> <div id="d6"> </div> <br> <h5>Select Shipping Country & Shipping Option: </h5><br> <div class="container"> <div class="row"> <div class="col-12 col-md-2"> <p>Country: &nbsp;</p> <select id="selectBox"> <option value="Jordan">Jordan</option> <option value="Syria">Syria</option> <option value="Palestine">Palestine</option> <option value="Lebanon">Lebanon</option> <option value="Iraq">Iraq</option> <option value="Egypt">Egypt</option> <option value="Kingdom of Saudi Arabia">KSA</option> </select> </div> <div class="col-12 col-md-10"> <p>Option: </p> <label><input type="radio" name="shipping" value="Normal Shipping"> Normal Shipping ~ $10.00 &nbsp;</label> <label><input type="radio" name="shipping" value="Fast Shipping"> Fast Shipping ~ $15.99 &nbsp;</label> <span id="shipMsg" class="redText"></span> </div> </div> </div> <br><br><input type="button" class="btn btn-primary" value="Confirm Order" onclick="validatePurchase()"> <span id="validationMsg"></span> <br> <br> <h4 id="discount"></h4> <textarea rows="10" style="resize: none; width: 100%;" readonly id="output"></textarea>'
     document.getElementById('first').className = 'notSelected'
     document.getElementById('second').className = 'selected'
     document.getElementById('myForm').innerHTML = content
@@ -44,10 +46,10 @@ function togglePassword2()
 
 function validateAccount() {
     let valid = true
-    valid = validateName() && valid
+    valid = validateName() && valid 
     valid = validateEmail() && valid
     issue = !validatePassword() 
-    vaild = !issue && valid
+    valid = !issue && valid
     valid = validatePas2() && valid
 
     if (valid)
@@ -152,6 +154,9 @@ function validatePas2() {
 }
 
 // Second form code
+let output = "", sum = 0, shippingOption = 0
+let prices = [4.99, 12.00, 15.49, 5.50, 7.99, 30.00]
+let bought = []
 
 function toggleQuantity(no) {
     const opts = document.getElementsByName('items')
@@ -163,4 +168,119 @@ function toggleQuantity(no) {
     {
         document.getElementById("d" + no).innerHTML = ""
     }
+}
+
+function validateItems() {
+    valid = true, allFalse = true
+    const items = document.getElementsByName('items')
+    for (let i = 0; i < items.length; i++)
+    {
+        if (items[i].checked)
+        {
+            allFalse = false
+            let q = Number(document.getElementById("q" + (i + 1)).value)
+            if (q <= 0)
+            {
+                document.getElementById("sq" + (i + 1)).innerHTML = "Please enter a valid quantity!"
+                valid = false
+            }
+            else
+            {
+                bought.push(items[i].value)
+                sum += q * prices[i]
+                document.getElementById("sq" + (i + 1)).innerHTML = ""
+            }
+        }
+    }
+
+    if (allFalse)
+    {
+        valid = false
+        document.getElementById('s1').innerHTML = " Please Select Atleast One Item"
+    }
+    else
+    {
+        document.getElementById('s1').innerHTML = ""
+    }
+
+    return valid
+}
+function validateShipping() {
+    const ar = document.getElementsByName('shipping')
+    valid = false
+    for (let i = 0; i < ar.length; i++)
+    {
+        if (ar[i].checked)
+        {
+            valid = true
+            shippingOption = i
+            break;
+        }
+    }
+
+    if (valid)
+    {
+        document.getElementById('shipMsg').innerHTML = ""
+    }
+    else
+    {
+        document.getElementById('shipMsg').innerHTML = "Please choose a shipping mode"
+    }
+
+    return valid
+}
+
+function validatePurchase() {
+    output = "", sum = 0, shippingOption = 0, 
+    bought = []
+    valid = true
+    let vbl = valid
+    valid = validateEmail()
+    if (valid)
+        valid = vbl
+    vbl = valid
+    valid = validatePassword()
+    if (valid)
+        valid = vbl
+    vbl = valid
+    valid = validateItems()
+    if (valid)
+        valid = vbl
+    vbl = valid
+    valid = validateShipping()
+    if (valid)
+        valid = vbl
+    
+    if (valid)
+    {
+        if (sum >= 20)
+        {
+            document.getElementById('discount').innerText = 'Your order qualifies for a discount. (Not including Shipping)'
+            sum *= .95
+        }
+        else
+        {
+            document.getElementById('discount').innerText = 'Your order doesn\'t qualify for a discount.'   
+        }
+
+        output += " Email: " +  document.getElementById('email').value + '\n'
+        output += " Items Purchased: \n"
+        for (let i = 0; i < bought.length; i++)
+            output +=  ` ${i + 1}. ` + bought[i] + '\n'
+        
+        output += " Shipping Country: " + document.getElementById('selectBox').value + '\n'
+        output += " Shippping Option: " + (shippingOption == 0 ? "Normal Shipping\n" : "Fast Shipping\n")
+        if (shippingOption == 0)
+            sum += 10
+        else
+            sum += 15.99
+
+        output += " Total Price: $" + sum.toFixed(2) + "\n"
+    }
+    else
+    {
+        document.getElementById('discount').innerText = ''
+    }
+
+    document.getElementById('output').innerHTML = output
 }
