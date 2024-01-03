@@ -78,6 +78,50 @@ h1.title {
   text-decoration-color: grey;
 }
 
+h2.selected {
+  text-align: center;
+  margin-top: 5%;
+  text-decoration-line: underline;
+  text-decoration-color: grey;
+  cursor: pointer;
+}
+
+h2.notSelected {
+  text-align: center;
+  margin-top: 5%;
+  cursor: pointer;
+}
+
+h2.notSelected:hover {
+  text-align: center;
+  margin-top: 5%;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+h2.selected:hover {
+  text-align: center;
+  margin-top: 5%;
+  text-decoration-line: underline;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.formStyling {
+  padding: 30px 5%;
+  margin: auto;
+  width: 70%;
+  border: 1px solid rgb(133, 130, 130);
+  background-color: rgb(234, 234, 234);
+  border-radius: 5px;
+}
+
+.redText {
+  color: red;
+}
+
+
+
 /*End of testimonials code*/
 
 /*Footer Styling*/
